@@ -200,7 +200,7 @@ ms.reviewer:
                             </a>
                         </li>
                         <li>
-                            <a href="api/nuget-api-v3.md">
+                            <a href="api/introduction.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
