@@ -5,7 +5,7 @@ title: NuGet.org Protocols | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
-ms.date: 10/3/2017
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: null
@@ -13,7 +13,7 @@ ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 
 # optional metadata
 
-description: The evolving NuGet.org protocols to interact with NuGet clients.
+description: The evolving nuget.org protocols to interact with NuGet clients.
 ms.reviewer:
 - kraigb
 - karann-msft
@@ -21,18 +21,16 @@ ms.reviewer:
 ---
 # NuGet.org Protocols
 
-To interact with NuGet.org, clients need to follow certain protocols. Because these protocols keep evolving, clients
+To interact with nuget.org, clients need to follow certain protocols. Because these protocols keep evolving, clients
 must identify the protocol version they use when calling specific nuget.org APIs. This allows nuget.org to introduce
 changes in a non-breaking way for the old clients.
 
-These APIs are specific to NuGet.org and there is no expectation for other NuGet server implementations to introduce
+These APIs are specific to nuget.org and there is no expectation for other NuGet server implementations to introduce
 these APIs.
-
-This topic lists various protocols as and when they come to existence.
 
 ## NuGet protocol version 4.1.0
 
-This protocol specifies usage of verify-scope keys to interact with services other than nuget.org, to validate a
+Th3 4.1.0 protocol specifies usage of verify-scope keys to interact with services other than nuget.org, to validate a
 package against a nuget.org account. 
 
 Validation ensures that the user-created API keys are used only with nuget.org, and that other verification or
