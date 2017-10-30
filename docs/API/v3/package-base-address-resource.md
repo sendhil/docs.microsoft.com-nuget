@@ -61,7 +61,8 @@ container.
 
 [!code-JSON [package-base-address-index.json](./_data/package-base-address-index.json)]
 
-This list contains both listed and unlisted package versions.
+> [!Note]
+> This list contains both listed and unlisted package versions.
 
 ```
 GET https://example/flatcontainer/{LOWER_ID}/index.json
@@ -88,7 +89,12 @@ Name     | Type             | Notes
 -------- | ---------------- | -----
 versions | array of strings | Required: the package IDs available
 
-The strings in the `versions` array are all lowercased, normalized NuGet version strings.
+The strings in the `versions` array are all lowercased, 
+[normalized NuGet version strings](../../reference/package-versioning.md#normalized-version-numbers). The version
+strings do not contain any SemVer 2.0.0 build metadata.
+
+The intent is that the version strings found in this array can be used verbatim for the `LOWER_VERSION` tokens found
+in the following endpoints.
 
 ## Download package content (.nupkg)
 

@@ -77,29 +77,6 @@ When reviewing any application for ID prefix reservation, the [NuGet.org](https:
 5. Are the identifying properties of the packages that match the package ID prefix clear and consistent (especially the package author)?
 
 ## 3rd party feed provider scenarios
-If a 3rd party feed provider is interested in implementing their own service to provide prefix reservations, you can do so by modifying the search service in the NuGet v3 feed providers. The addition in the feed search service is to add the *verified* property, with examples for the v3 feeds below. The NuGet client will not support the added property in the v2 feed.
+If a 3rd party feed provider is interested in implementing their own service to provide prefix reservations, you can do so by modifying the search service in the NuGet V3 feed providers. The addition in the feed search service is to add the *verified* property, with examples for the V3 feeds below. The NuGet client will not support the added property in the V2 feed.
 
-### v3 search service example
-```json
-"data": 
-[
-    {
-        "@id": "https://api.nuget.org/v3/registration2/mysql.data.entity/index.json",
-        "@type": "Package",
-        "registration": "https://api.nuget.org/v3/registration2/mysql.data.entity/index.json",
-        "id": "MySql.Data.Entity",
-        "version": "6.9.9",
-        "description": "Entity Framework 6.0 supported",
-        "summary": "",
-        "title": "MySql.Data.Entity",
-        "iconUrl": "http://www.mysql.com/common/logos/logo-mysql-170x115.png",
-        "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
-        "projectUrl": "http://dev.mysql.com/downloads/",
-        "tags": [],
-        "authors": [],
-        "totalDownloads": 434685,
-        "verified": true,
-        "versions": []
-    },
-]
-```
+For more information, see the [documentation about the V3 API's search service](../../api/v3/search-query-service-resource.md).

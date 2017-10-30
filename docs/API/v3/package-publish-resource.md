@@ -90,7 +90,10 @@ Status Code | Meaning
 NuGet.org interprets the package delete request as an "unlist". This means that the package is still available for
 existing consumers of the package but the package now longer appears in search results or in the web interface. For
 more information about this practice, see the
-[Deleted Packages](https://docs.microsoft.com/en-us/nuget/policies/deleting-packages) policy.
+[Deleted Packages](https://docs.microsoft.com/en-us/nuget/policies/deleting-packages) policy. Other server
+implementations are free to interpret this signal as a hard delete, soft delete, or unlist. For example,
+[NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (a server implementation only supporting the older V2 API)
+supports handling this request as either an unlist or a hard delete based on a configuration option.
 
 ```
 DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}

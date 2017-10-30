@@ -19,14 +19,15 @@ ms.reviewer:
 - karann-msft
 
 ---
-# NuGet.org Protocols
+# NuGet.org-only Protocols
 
 To interact with NuGet.org, clients need to follow certain protocols. Because these protocols keep evolving, clients
 must identify the protocol version they use when calling specific nuget.org APIs. This allows nuget.org to introduce
 changes in a non-breaking way for the old clients.
 
-These APIs are specific to NuGet.org and there is no expectation for other NuGet server implementations to introduce
-these APIs.
+The APIs documented on this page are specific to NuGet.org and there is no expectation for other NuGet server
+implementations to introduce these APIs. For information about the NuGet V3 API implemented broadly across the NuGet
+ecosystem, see the [V3 API overview](v3/overview.md).
 
 This topic lists various protocols as and when they come to existence.
 
@@ -99,3 +100,11 @@ X-NuGet-ApiKey | Header | string | Required: for example, `X-NuGet-ApiKey: {VERI
 
 > [!Note]
 > This verify scope API key expires in a day's time or on first use, whichever occurs first.
+
+#### Response
+
+Status Code | Meaning
+----------- | -------
+200         | The API key is valid
+403         | The API key is invalid or not authorized to push against the package
+404         | The package referred to by `ID` and `VERSION` (optional) does not exist

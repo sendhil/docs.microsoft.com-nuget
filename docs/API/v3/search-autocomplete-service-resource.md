@@ -123,7 +123,7 @@ GET https://example/autocomplete?id={ID}&prerelease={PRERELEASE}&semVerLevel={SE
 
 Name        | In     | Type    | Notes
 ----------- | ------ | ------- | -----
-q           | URL    | string  | Optional: the package ID to fetch versions for
+id          | URL    | string  | Optional: the package ID to fetch versions for
 prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
 

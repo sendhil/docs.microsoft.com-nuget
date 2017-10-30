@@ -101,6 +101,24 @@ The URL of the registration index is predictable and can be determined by the cl
 registration resource's `@id` value from the service index. The URLs for the registration pages and leaves are
 discovered by inspecting the registration index.
 
+### Registration pages and leaves
+
+Although it is not strictly required for a server implementations to store registration leafs in seperate
+registration page documents, it is a recommended practice to conserve client-side memory. Instead of inlining all
+registration leaves in the index or immediately storing leaves in page documents, it is recommended that the server
+implementation define some heuristic to choose between the two approaches based on the number of package versions
+or cumulative size of package leaves.
+
+Storing all package versions (leaves) in the registration index saves on the number of HTTP requests necessary to fetch
+package metadata but means that a larger document must be downloaded and more client memory must be allocated. On the
+other hand, if the server implementation immediately stores registration leaves in seperate page documents, the client
+must perform more HTTP requests to get the information it needs.
+
+The heuristic that NuGet.org uses is as follows: if there are 128 or more versions of a package, break the leaves
+into pages of size 64. If there are less than 128 versions, inline all leaves into the registration index.
+
+### Location
+
 The location of the registration index is:
 ```
 https://example/registration/{LOWER_ID}/index.json
@@ -142,7 +160,8 @@ upper  | string           | Required: the highest SemVer 2.0.0 version in the pa
 
 The `lower` and `upper` bounds of the page object are useful when the metadata for a specific page version is needed.
 These bounds can be used to fetch the only the registration page needed. The version strings adhere to
-[NuGet's version rules](../../reference/package-versioning.md).
+[NuGet's version rules](../../reference/package-versioning.md). The version strings are normalized and do not include
+build metadata.
 
 If the `items` property is not present in the registration page object, the URL specified in the `@id` must be used to
 fetch metadata about individual package versions. The `items` array is sometimes excluded from the page
