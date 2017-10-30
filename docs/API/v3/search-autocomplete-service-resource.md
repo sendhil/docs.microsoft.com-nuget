@@ -70,13 +70,13 @@ GET https://example/autocomplete?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={P
 
 ### Request parameters
 
-Name        | In     | Type    | Notes
------------ | ------ | ------- | -----
-q           | URL    | string  | Optional: the string to compare against package IDs
-skip        | URL    | integer | Optional: the number of results to skip, for pagination
-take        | URL    | integer | Optional: the number of results to return, for pagination
-prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
+Name        | In     | Type    | Required | Notes
+----------- | ------ | ------- | -------- | -----
+q           | URL    | string  | no       | The string to compare against package IDs
+skip        | URL    | integer | no       | The number of results to skip, for pagination
+take        | URL    | integer | no       | The number of results to return, for pagination
+prerelease  | URL    | boolean | no       | `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
+semVerLevel | URL    | string  | no       | A SemVer 2.0.0 version string 
 
 The autocomplete query `q` is parsed in a manner that is defined by the server implementation. nuget.org supports
 querying for the prefix of package ID tokens, which are pieces of the ID produced by spliting the original by camel
@@ -103,10 +103,10 @@ Autocomplete results returned by nuget.org looks something like this, when using
 
 The root JSON object has the following properties:
 
-Name      | Type             | Notes
---------- | ---------------- | -----
-totalHits | integer          | Required: the total number of matches, disregarding `skip` and `take`
-data      | array of strings | Required: the package IDs matched by the request
+Name      | Type             | Required | Notes
+--------- | ---------------- | -------- | -----
+totalHits | integer          | yes      | The total number of matches, disregarding `skip` and `take`
+data      | array of strings | yes      | The package IDs matched by the request
 
 ## Enumerate package versions
 
@@ -121,11 +121,11 @@ GET https://example/autocomplete?id={ID}&prerelease={PRERELEASE}&semVerLevel={SE
 
 ### Request parameters
 
-Name        | In     | Type    | Notes
------------ | ------ | ------- | -----
-id          | URL    | string  | Optional: the package ID to fetch versions for
-prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
+Name        | In     | Type    | Required | Notes
+----------- | ------ | ------- | -------- | -----
+id          | URL    | string  | no       | The package ID to fetch versions for
+prerelease  | URL    | boolean | no       | `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
+semVerLevel | URL    | string  | no       | A SemVer 2.0.0 version string 
 
 If `prerelease` is not provided, pre-release packages are excluded.
 
@@ -146,9 +146,9 @@ The version list result returned by nuget.org looks something like this, when us
 
 The root JSON object has the following property:
 
-Name      | Type             | Notes
---------- | ---------------- | -----
-data      | array of strings | Required: the package versions matched by the request
+Name      | Type             | Required | Notes
+--------- | ---------------- | -------- | -----
+data      | array of strings | yes      | The package versions matched by the request
 
 The package versions in the `data` array could contain SemVer 2.0.0 build metadata (e.g. `1.0.0+metadata`) if the
 `semVerLevel=2.0.0` was provided in the query string.

@@ -59,9 +59,9 @@ PUT https://www.nuget.org/api/v2/package
 
 ### Request parameters
 
-Name           | In     | Type   | Notes
--------------- | ------ | ------ | -----
-X-NuGet-ApiKey | Header | string | Required: for example, `X-NuGet-ApiKey: {USER_API_KEY}`
+Name           | In     | Type   | Required | Notes
+-------------- | ------ | ------ | -------- | -----
+X-NuGet-ApiKey | Header | string | yes      | For example, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### Request body
 
@@ -101,11 +101,11 @@ DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### Request parameters
 
-Name           | In     | Type   | Notes
--------------- | ------ | ------ | -----
-ID             | URL    | string | Required: the ID of the package to delete
-VERSION        | URL    | string | Required: the version of the package to delete
-X-NuGet-ApiKey | Header | string | Required: for example, `X-NuGet-ApiKey: {USER_API_KEY}`
+Name           | In     | Type   | Required | Notes
+-------------- | ------ | ------ | -------- | -----
+ID             | URL    | string | yes      | The ID of the package to delete
+VERSION        | URL    | string | yes      | The version of the package to delete
+X-NuGet-ApiKey | Header | string | yes      | For example, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 ### Response
 

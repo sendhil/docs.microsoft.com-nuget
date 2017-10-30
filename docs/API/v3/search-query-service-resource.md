@@ -75,13 +75,13 @@ GET https://example/query?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEA
 
 ### Request parameters
 
-Name        | In     | Type    | Notes
------------ | ------ | ------- | -----
-q           | URL    | string  | Optional: the search terms to used to filter packages
-skip        | URL    | integer | Optional: the number of results to skip, for pagination
-take        | URL    | integer | Optional: the number of results to return, for pagination
-prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
+Name        | In     | Type    | Required | Notes
+----------- | ------ | ------- | -------- | -----
+q           | URL    | string  | no       | The search terms to used to filter packages
+skip        | URL    | integer | no       | The number of results to skip, for pagination
+take        | URL    | integer | no       | The number of results to return, for pagination
+prerelease  | URL    | boolean | no       | `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
+semVerLevel | URL    | string  | no       | A SemVer 2.0.0 version string 
 
 The search query `q` is parsed in a manner that is defined by the server implementation. nuget.org supports basic
 filtering on a [variety of fields](../../consume-packages/finding-and-choosing-packages.md#search-syntax). If no
@@ -109,33 +109,33 @@ Search results returned by nuget.org looks something like this, when using `q=Nu
 
 The root JSON object has the following properties:
 
-Name      | Type             | Notes
---------- | ---------------- | -----
-totalHits | integer          | Required: the total number of matches, disregarding `skip` and `take`
-data      | array of objects | Required: the search results matched by the request
+Name      | Type             | Required | Notes
+--------- | ---------------- | -------- | -----
+totalHits | integer          | yes      | The total number of matches, disregarding `skip` and `take`
+data      | array of objects | yes      | The search results matched by the request
 
 ### Search result
 
 Each item in the `data` array is a JSON object comprised of a group of package versions sharing the same package ID.
 The object has the following properties:
 
-Name           | Type                       | Notes
--------------- | -------------------------- | -----
-id             | string                     | Required: the ID of the matched package
-version        | string                     | Required: the full SemVer 2.0.0 version string of the package (could contain build metadata)
-description    | string                     | Optional
-versions       | array of objects           | Required: all of the versions of the package matching the `prerelease` parameter
-authors        | string or array of strings | Optional
-iconUrl        | string                     | Optional
-licenseUrl     | string                     | Optional
-owners         | string or array of strings | Optional
-projectUrl     | string                     | Optional
-registration   | string                     | Optional: the absolute URL to the associated [registration index](registration-base-url-resource.md#registration-index)
-summary        | string                     | Optional
-tags           | string or array of strings | Optional
-title          | string                     | Optional
-totalDownloads | integer                    | Optional: this value can be inferred by the sum of downloads in the `versions` array
-verified       | boolean                    | Optional: a JSON boolean indicating whether the package is [verified](../../reference/id-prefix-reservation.md)
+Name           | Type                       | Required | Notes
+-------------- | -------------------------- | -------- | -----
+id             | string                     | yes      | The ID of the matched package
+version        | string                     | yes      | The full SemVer 2.0.0 version string of the package (could contain build metadata)
+description    | string                     | no       | 
+versions       | array of objects           | yes      | All of the versions of the package matching the `prerelease` parameter
+authors        | string or array of strings | no       | 
+iconUrl        | string                     | no       | 
+licenseUrl     | string                     | no       | 
+owners         | string or array of strings | no       | 
+projectUrl     | string                     | no       | 
+registration   | string                     | no       | The absolute URL to the associated [registration index](registration-base-url-resource.md#registration-index)
+summary        | string                     | no       | 
+tags           | string or array of strings | no       | 
+title          | string                     | no       | 
+totalDownloads | integer                    | no       | This value can be inferred by the sum of downloads in the `versions` array
+verified       | boolean                    | no       | A JSON boolean indicating whether the package is [verified](../../reference/id-prefix-reservation.md)
 
 On nuget.org, a verified package is one which has a package ID matching a reserved ID prefix and that package owned by
 one of the reserved namespace's owners. For more information, see the
@@ -144,8 +144,8 @@ one of the reserved namespace's owners. For more information, see the
 The metadata contained in the search result object is taken from the latest package version. Each item in the
 `versions` array is a JSON object with the following properties:
 
-Name      | Type    | Notes
---------- | ------- | -----
-@id       | string  | Required: the absolute URL to the associated [registration leaf](registration-base-url-resource.md#registration-leaf)
-version   | string  | Required: the full SemVer 2.0.0 version string of the package (could contain build metadata)
-downloads | integer | Required: the number of downloads for this specific package version
+Name      | Type    | Required | Notes
+--------- | ------- | -------- | -----
+@id       | string  | yes      | The absolute URL to the associated [registration leaf](registration-base-url-resource.md#registration-leaf)
+version   | string  | yes      | The full SemVer 2.0.0 version string of the package (could contain build metadata)
+downloads | integer | yes      | The number of downloads for this specific package version

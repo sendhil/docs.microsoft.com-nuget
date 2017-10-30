@@ -126,9 +126,9 @@ https://example/registration/{LOWER_ID}/index.json
 
 ### Request parameters
 
-Name     | In     | Type    | Notes
--------- | ------ | ------- | -----
-LOWER_ID | URL    | string  | Required: the package ID, lowercase
+Name     | In     | Type    | Required | Notes
+-------- | ------ | ------- | -------- | -----
+LOWER_ID | URL    | string  | yes      | The package ID, lowercased
 
 The `LOWER_ID` value is the desired package ID lowercased using the rules implemented by .NET's
 [`System.String.ToLowerInvariant()`](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)
@@ -138,10 +138,10 @@ method.
 
 The response is a JSON document which has a root object with the following properties:
 
-Name  | Type             | Notes
------ | ---------------- | -----
-count | integer          | Required: the number of registration pages in the index
-items | array of objects | Required: the array of registration pages
+Name  | Type             | Required | Notes
+----- | ---------------- | -------- | -----
+count | integer          | yes      | The number of registration pages in the index
+items | array of objects | yes      | The array of registration pages
 
 Each item in the index object's `items` array is a JSON object representing a registration page.
 
@@ -149,14 +149,14 @@ Each item in the index object's `items` array is a JSON object representing a re
 
 The registration page object found in the registration index has the following properties:
 
-Name   | Type             | Notes
------- | ---------------- | -----
-@id    | string           | Required: the URL to the registration page
-count  | integer          | Required: the number of registration leaves in the page
-items  | array of objects | Optional: the array of registration leaves and their associate metadata
-lower  | string           | Required: the lowest SemVer 2.0.0 version in the page (inclusive)
-parent | string           | Required: the URL to the registration index
-upper  | string           | Required: the highest SemVer 2.0.0 version in the page (inclusive)
+Name   | Type             | Required | Notes
+------ | ---------------- | -------- | -----
+@id    | string           | yes      | The URL to the registration page
+count  | integer          | yes      | The number of registration leaves in the page
+items  | array of objects | no       | The array of registration leaves and their associate metadata
+lower  | string           | yes      | The lowest SemVer 2.0.0 version in the page (inclusive)
+parent | string           | yes      | The URL to the registration index
+upper  | string           | yes      | The highest SemVer 2.0.0 version in the page (inclusive)
 
 The `lower` and `upper` bounds of the page object are useful when the metadata for a specific page version is needed.
 These bounds can be used to fetch the only the registration page needed. The version strings adhere to
@@ -179,11 +179,11 @@ metadata.
 
 The registration leaf object found in a registration page has the following properties:
 
-Name           | Type   | Notes
--------------- | ------ | -----
-@id            | string | Required: the URL to the registration leaf
-catalogEntry   | object | Required: the catalog entry containing the package metadata
-packageContent | string | Required: the URL to the package content (.nupkg)
+Name           | Type   | Required | Notes
+-------------- | ------ | -------- | -----
+@id            | string | yes      | The URL to the registration leaf
+catalogEntry   | object | yes      | The catalog entry containing the package metadata
+packageContent | string | yes      | The URL to the package content (.nupkg)
 
 Each registration leaf object represents data associated with a single package version.
 
@@ -191,24 +191,24 @@ Each registration leaf object represents data associated with a single package v
 
 The `catalogEntry` property in the registration leaf object has the following properties:
 
-Name                     | Type                       | Notes
------------------------- | -------------------------- | -----
-@id                      | string                     | Required: the URL to document used to produce this object
-authors                  | string or array of strings | Optional
-dependencyGroups         | array of objects           | Required: the URL to the package content (.nupkg)
-description              | string                     | Optional
-iconUrl                  | string                     | Optional
-id                       | string                     | Required: the ID of the package
-licenseUrl               | string                     | Optional
-listed                   | boolean                    | Optional: should be considered as listed if absent
-minClientVersion         | string                     | Optional
-projectUrl               | string                     | Optional
-published                | string                     | Optional: a string containing a ISO 8601 timestamp of when the package was published
-requireLicenseAcceptance | boolean                    | Optional
-summary                  | string                     | Optional
-tags                     | string or array of string  | Optional
-title                    | string                     | Optional
-version                  | string                     | Required: the version of the package
+Name                     | Type                       | Required | Notes
+------------------------ | -------------------------- | -------- | -----
+@id                      | string                     | yes      | The URL to document used to produce this object
+authors                  | string or array of strings | no       | 
+dependencyGroups         | array of objects           | yes      | The URL to the package content (.nupkg)
+description              | string                     | no       | 
+iconUrl                  | string                     | no       | 
+id                       | string                     | yes      | The ID of the package
+licenseUrl               | string                     | no       | 
+listed                   | boolean                    | no       | Should be considered as listed if absent
+minClientVersion         | string                     | no       | 
+projectUrl               | string                     | no       | 
+published                | string                     | no       | A string containing a ISO 8601 timestamp of when the package was published
+requireLicenseAcceptance | boolean                    | no       | 
+summary                  | string                     | no       | 
+tags                     | string or array of string  | no       | 
+title                    | string                     | no       | 
+version                  | string                     | yes      | The version of the package
 
 The `dependencyGroups` property is an array of objects representing the dependencies of the package, grouped by target
 framework.
@@ -217,10 +217,10 @@ framework.
 
 Each dependency group object has the following properties:
 
-Name            | Type             | Notes
---------------- | ---------------- | -----
-targetFramework | string           | Optional: the target framework that these dependencies are applicable to
-dependencies    | array of objects | Optional
+Name            | Type             | Required | Notes
+--------------- | ---------------- | -------- | -----
+targetFramework | string           | no       | The target framework that these dependencies are applicable to
+dependencies    | array of objects | no       |
 
 The `targetFramework` string uses the format implemented by NuGet's .NET library
 [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). If no `targetFramework` is specified, the
@@ -232,11 +232,11 @@ The `dependencies` property is an array of objects, each representing a package 
 
 Each package dependency has the following properties:
 
-Name         | Type   | Notes
------------- | ------ | -----
-id           | string | Required: the ID of the package dependency
-range        | object | Optional: the allowed [version range](../../reference/package-versioning.md#version-ranges-and-wildcards) of the dependency
-registration | string | Optional: the URL to the registration index for this dependency
+Name         | Type   | Required | Notes
+------------ | ------ | -------- | -----
+id           | string | yes      | The ID of the package dependency
+range        | object | no       | The allowed [version range](../../reference/package-versioning.md#version-ranges-and-wildcards) of the dependency
+registration | string | no       | The URL to the registration index for this dependency
 
 If the `range` property is excluded or an empty string, the client should default to the version range `(, )`. That is,
 any version of the dependency is allowed.
@@ -258,14 +258,14 @@ property in the [registration page object](#registration-page-object) mentioned 
 When the `items` array is not provided in the registration index, an HTTP GET request of the `@id` value will return a
 JSON document which has an object as its root. The object has the following properties:
 
-Name   | Type             | Notes
------- | ---------------- | -----
-@id    | string           | Required: the URL to the registration page
-count  | integer          | Required: the number of registration leaves in the page
-items  | array of objects | Required: the array of registration leaves and their associate metadata
-lower  | string           | Required: the lowest SemVer 2.0.0 version in the page (inclusive)
-parent | string           | Required: the URL to the registration index
-upper  | string           | Required: the highest SemVer 2.0.0 version in the page (inclusive)
+Name   | Type             | Required | Notes
+------ | ---------------- | -------- | -----
+@id    | string           | yes      | The URL to the registration page
+count  | integer          | yes      | The number of registration leaves in the page
+items  | array of objects | yes      | The array of registration leaves and their associate metadata
+lower  | string           | yes      | The lowest SemVer 2.0.0 version in the page (inclusive)
+parent | string           | yes      | The URL to the registration index
+upper  | string           | yes      | The highest SemVer 2.0.0 version in the page (inclusive)
 
 The shape of the registration leaf objects is the same as in the registration index
 [above](#registration-leaf-object-in-a-page).
@@ -282,14 +282,14 @@ registration index or registration page.
 
 The registration leaf is a JSON document with a root object with the following properties:
 
-Name           | Type    | Notes
--------------- | ------- | -----
-@id            | string  | Required: the URL to the registration leaf
-catalogEntry   | string  | Optional: the URL to the catalog entry that produced these leaf
-listed         | boolean | Optional: should be considered as listed if absent
-packageContent | string  | Optional: the URL to the package content (.nupkg)
-published      | string  | Optional: a string containing a ISO 8601 timestamp of when the package was published
-registration   | string  | Optional: the URL to the registration index
+Name           | Type    | Required | Notes
+-------------- | ------- | -------- | -----
+@id            | string  | yes      | The URL to the registration leaf
+catalogEntry   | string  | no       | The URL to the catalog entry that produced these leaf
+listed         | boolean | no       | Should be considered as listed if absent
+packageContent | string  | no       | The URL to the package content (.nupkg)
+published      | string  | no       | A string containing a ISO 8601 timestamp of when the package was published
+registration   | string  | no       | The URL to the registration index
 
 > [!Note]
 > On nuget.org, the `published` value is set to year 1900 when the package is unlisted.

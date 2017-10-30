@@ -57,15 +57,20 @@ The `resources` property contains an array of resources supported by this packag
 
 ### Resource
 
-A resource is an object in the `resources` array. It represents a versioned capability of a V3 package source. A resource
-has two required properties: `@id` (the URL of the resource) and `@type` (an identifier of what the resource is used
-for).
+A resource is an object in the `resources` array. It represents a versioned capability of a V3 package source. A
+resource has the following properties:
 
-The `@id` property is a string that is the URL to the resource. This URL must be absolute and must either have the HTTP
-or HTTPS schema.
+Name          | Type   | Required | Notes
+------------- | ------ | -------- | -----
+@id           | string | yes      | The URL to the resource
+@type         | string | yes      | A string constant representing the resource type
+clientVersion | string | no       | The client version that this resource applies to
+comment       | string | no       | A human readable description of the resource
 
-The `@type` property is a string used to identify the specific protocol to use when interacting with resource. The type
-of the resource is an opaque string but generally has the format:
+The `@id` is a URL that must be absolute and must either have the HTTP or HTTPS schema.
+
+The `@type` is used to identify the specific protocol to use when interacting with resource. The type of the resource
+is an opaque string but generally has the format:
 
 ```
 {RESOURCE_NAME}/{RESOURCE_VERSION}
@@ -80,8 +85,6 @@ For the sake of this V3 documentation, the documentation about different resourc
 There is no requirement that each resource has a unique `@id` or `@type`. It is up to the client implementation to
 determine which resource to prefer over another. One possible implementation is that resources of the same or
 compatible `@type` can be used in a round-robin fashion in case of connection failure or server error.
-
-Optionally, the resource can have a `comment` property which is a human readable string describing the resource.
 
 ### Client version
 

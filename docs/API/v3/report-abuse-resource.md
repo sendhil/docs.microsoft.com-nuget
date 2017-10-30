@@ -69,10 +69,10 @@ The value of the `@id` is a URL string containing any of the following placehold
 
 ### URL placeholders
 
-Name        | Type    | Notes
------------ | ------- | -----
-`{id}`      | string  | Optional: the package ID to report abuse for
-`{version}` | string  | Optional: the package version to report abuse for
+Name        | Type    | Required | Notes
+----------- | ------- | -------- | -----
+`{id}`      | string  | no       | The package ID to report abuse for
+`{version}` | string  | no       | The package version to report abuse for
 
 The `{id}` and `{version}` values interpreted by the server implementation must be case insenstive and not sensitive to
 whether the version is normalized.

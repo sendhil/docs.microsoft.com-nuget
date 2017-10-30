@@ -70,9 +70,9 @@ GET https://example/flatcontainer/{LOWER_ID}/index.json
 
 ### Request parameters
 
-Name     | In     | Type    | Notes
--------- | ------ | ------- | -----
-LOWER_ID | URL    | string  | Required: the package ID, lowercase
+Name     | In     | Type    | Required | Notes
+-------- | ------ | ------- | -------- | -----
+LOWER_ID | URL    | string  | yes      | The package ID, lowercase
 
 The `LOWER_ID` value is the desired package ID lowercased using the rules implemented by .NET's
 [`System.String.ToLowerInvariant()`](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)
@@ -85,9 +85,9 @@ If the package source has no versions of the provided package ID, a 404 status c
 If the package source has one or more versions, a 200 status code is returned. The response body is a JSON object with
 the following property:
 
-Name     | Type             | Notes
--------- | ---------------- | -----
-versions | array of strings | Required: the package IDs available
+Name     | Type             | Required | Notes
+-------- | ---------------- | -------- | -----
+versions | array of strings | yes      | The package IDs available
 
 The strings in the `versions` array are all lowercased, 
 [normalized NuGet version strings](../../reference/package-versioning.md#normalized-version-numbers). The version
@@ -107,10 +107,10 @@ GET https://example/flatcontainer/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_V
 
 ### Request parameters
 
-Name          | In     | Type    | Notes
-------------- | ------ | ------- | -----
-LOWER_ID      | URL    | string  | Required: the package ID, lowercase
-LOWER_VERSION | URL    | integer | Required: the package version, normalized and lowercase
+Name          | In     | Type    | Required | Notes
+------------- | ------ | ------- | -------- | -----
+LOWER_ID      | URL    | string  | yes      | The package ID, lowercase
+LOWER_VERSION | URL    | integer | yes      | The package version, normalized and lowercased
 
 Both `LOWER_ID` and `LOWER_VERSION` are lowercased using the rules implemented by .NET's
 [`System.String.ToLowerInvariant()`](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx)
@@ -125,4 +125,4 @@ that is allowed by the SemVer 2.0.0 specification must be excluded in this case.
 If the package exists on the package source, a 200 status code is returned. The response body will be the package
 content itself.
 
-If the package does not exists, a 404 status code is returned.
+If the package does not exist on the package source, a 404 status code is returned.

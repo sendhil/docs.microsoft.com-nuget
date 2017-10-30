@@ -25,9 +25,12 @@ To interact with nuget.org, clients need to follow certain protocols. Because th
 must identify the protocol version they use when calling specific nuget.org APIs. This allows nuget.org to introduce
 changes in a non-breaking way for the old clients.
 
-The APIs documented on this page are specific to nuget.org and there is no expectation for other NuGet server
-implementations to introduce these APIs. For information about the NuGet V3 API implemented broadly across the NuGet
-ecosystem, see the [V3 API overview](v3/overview.md).
+> [!Note]
+> The APIs documented on this page are specific to nuget.org and there is no expectation for other NuGet server
+> implementations to introduce these APIs. 
+
+For information about the NuGet V3 API implemented broadly across the NuGet ecosystem, see the
+[V3 API overview](v3/overview.md).
 
 This topic lists various protocols as and when they come to existence.
 
@@ -67,11 +70,11 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### Request parameters
 
-Name           | In     | Type   | Notes
--------------- | ------ | ------ | ----- 
-ID             | URL    | string | Required: the package identidier for which theverify scope key is requested
-VERSION        | URL    | string | Optional: package version
-X-NuGet-ApiKey | Header | string | Required: for example, `X-NuGet-ApiKey: {USER_API_KEY}`
+Name           | In     | Type   | Required | Notes
+-------------- | ------ | ------ | -------- | -----
+ID             | URL    | string | yes      | The package identidier for which the verify scope key is requested
+VERSION        | URL    | string | no       | The package version
+X-NuGet-ApiKey | Header | string | yes      | For example, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### Response
 
@@ -92,11 +95,11 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 #### Request parameters
 
-Name           | In     | Type   | Notes
--------------  | ------ | ------ | -----
-ID             | URL    | string | Required: the package identifier for which the verify scope key is requested
-VERSION        | URL    | string | Optional: package version
-X-NuGet-ApiKey | Header | string | Required: for example, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
+Name           | In     | Type   | Required | Notes
+-------------  | ------ | ------ | -------- | -----
+ID             | URL    | string | yes      | The package identifier for which the verify scope key is requested
+VERSION        | URL    | string | no       | The package version
+X-NuGet-ApiKey | Header | string | yes      | For example, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
 > This verify scope API key expires in a day's time or on first use, whichever occurs first.
