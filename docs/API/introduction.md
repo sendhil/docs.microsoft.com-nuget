@@ -17,8 +17,8 @@ ms.assetid: 100606fd-0a03-4274-8ebf-7d778f73869c
 
 # optional metadata
 
-description: "There are a variety of ways to interact with NuGet programmatically: fetching package information and extending authentication with package sources"
-keyworkds: NuGet, API, REST, HTTP, credentials, SDK
+description: Describes how to interact with NuGet programmatically: fetching package information and extending authentication with package sources
+keyworkds: NuGet API, NuGet REST API, NuGet HTTP protocol, NuGet credentials, NuGet SDK
 ms.reviewer:
 - karann
 - unniravindranathan
@@ -31,11 +31,10 @@ There are a variety of ways to interact with NuGet programmatically.
 
 ## Consuming and publishing packages
 
-To interact with packages available on nuget.org and other V3-enabled NuGet package sources such as MyGet and Visual
-Studio Team Services package management, you can either:
+The following methods allow you to interact with packages available on nuget.org and other V3-enabled NuGet package sources such as MyGet and Visual Studio Team Services package management:
 
-1. Use the <a href="v3/overview.md">HTTP-based V3 API</a> and write your own client code.
-1. Use the <a href="nuget-client-sdk.md">NuGet client SDK</a>, a set of .NET libraries used by the official NuGet clients.
+1. Use the [HTTP-based V3 API](v3/overview.md) and write your own client code.
+1. Use the [NuGet client SDK](nuget-client-sdk.md), a set of .NET libraries used by the official NuGet clients.
 
 When interacting with [nuget.org's HTTP protocol](nuget-protocols.md), there are additional requirements and endpoints
 available on top of the documented V3 API.
@@ -45,5 +44,5 @@ available on top of the documented V3 API.
 NuGet supports extensions on how users authenticate with packages sources via **credential providers**. There are two
 forms of credential providers each used by a different client experience.
 
-1. <a href="NuGet-Credential-Providers-for-Visual-Studio.md">Credential providers for Visual Studio</a>.
-1. <a href="nuget-exe-Credential-Providers.md">Credential providers for nuget.exe</a>.
+1. [Credential providers for Visual Studio](NuGet-Credential-Providers-for-Visual-Studio.md).
+1. [Credential providers for nuget.exe](nuget-exe-Credential-Providers.md).

@@ -5,7 +5,7 @@ title: nuget.org-only Protocols | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
-ms.date: 10/3/2017
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: null
@@ -33,7 +33,7 @@ This topic lists various protocols as and when they come to existence.
 
 ## NuGet protocol version 4.1.0
 
-This protocol specifies usage of verify-scope keys to interact with services other than nuget.org, to validate a
+The 4.1.0 protocol specifies usage of verify-scope keys to interact with services other than nuget.org, to validate a
 package against a nuget.org account. 
 
 Validation ensures that the user-created API keys are used only with nuget.org, and that other verification or
