@@ -18,7 +18,7 @@ ms.assetid: 100606fd-0a03-4274-8ebf-7d778f73869c
 # optional metadata
 
 description: Describes how to interact with NuGet programmatically: fetching package information and extending authentication with package sources
-keyworkds: NuGet API, NuGet REST API, NuGet HTTP protocol, NuGet credentials, NuGet SDK
+keywords: NuGet API, NuGet REST API, NuGet HTTP protocol, NuGet credentials, NuGet SDK
 ms.reviewer:
 - karann
 - unniravindranathan
