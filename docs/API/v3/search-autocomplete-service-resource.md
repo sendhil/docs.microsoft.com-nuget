@@ -78,7 +78,7 @@ take        | URL    | integer | Optional: the number of results to return, for 
 prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
 
-The autocomplete query `q` is parsed in a manner that is defined by the server implementation. NuGet.org supports
+The autocomplete query `q` is parsed in a manner that is defined by the server implementation. nuget.org supports
 querying for the prefix of package ID tokens, which are pieces of the ID produced by spliting the original by camel
 case and symbol characters.
 

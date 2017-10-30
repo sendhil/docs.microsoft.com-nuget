@@ -83,7 +83,7 @@ take        | URL    | integer | Optional: the number of results to return, for 
 prerelease  | URL    | boolean | Optional: `true` or `false` determining whether to include [pre-release packages](../../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | Optional: a SemVer 2.0.0 version string 
 
-The search query `q` is parsed in a manner that is defined by the server implementation. NuGet.org supports basic
+The search query `q` is parsed in a manner that is defined by the server implementation. nuget.org supports basic
 filtering on a [variety of fields](../../consume-packages/finding-and-choosing-packages.md#search-syntax). If no
 `q` is provided, all packages should be returned. This enables the "Browse" tab in the NuGet Visual Studio
 experience.
@@ -137,7 +137,7 @@ title          | string                     | Optional
 totalDownloads | integer                    | Optional: this value can be inferred by the sum of downloads in the `versions` array
 verified       | boolean                    | Optional: a JSON boolean indicating whether the package is [verified](../../reference/id-prefix-reservation.md)
 
-On NuGet.org, a verified package is one which has a package ID matching a reserved ID prefix and that package owned by
+On nuget.org, a verified package is one which has a package ID matching a reserved ID prefix and that package owned by
 one of the reserved namespace's owners. For more information, see the
 [documentation about ID prefix reservation](../../reference/id-prefix-reservation.md).
 

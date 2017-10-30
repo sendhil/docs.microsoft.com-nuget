@@ -41,7 +41,7 @@ the same general API surface area. However, there have been changes in the `Cont
 2.0.0 packages. For more information about SemVer 2.0.0,
 [SemVer 2.0.0 protocol](https://github.com/NuGet/Home/wiki/Semver-2.0.0-Protocol) design.
 
-NuGet.org has three registration hives available for various client versions.
+nuget.org has three registration hives available for various client versions.
 
 ### Initial hive
 
@@ -114,7 +114,7 @@ package metadata but means that a larger document must be downloaded and more cl
 other hand, if the server implementation immediately stores registration leaves in seperate page documents, the client
 must perform more HTTP requests to get the information it needs.
 
-The heuristic that NuGet.org uses is as follows: if there are 128 or more versions of a package, break the leaves
+The heuristic that nuget.org uses is as follows: if there are 128 or more versions of a package, break the leaves
 into pages of size 64. If there are less than 128 versions, inline all leaves into the registration index.
 
 ### Location
@@ -243,7 +243,7 @@ any version of the dependency is allowed.
 
 #### Example
 
-The registration index for NuGet.Server.Core on NuGet.org looks something like this:
+The registration index for NuGet.Server.Core on nuget.org looks something like this:
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -292,10 +292,10 @@ published      | string  | Optional: a string containing a ISO 8601 timestamp of
 registration   | string  | Optional: the URL to the registration index
 
 > [!Note]
-> On NuGet.org, the `published` value is set to year 1900 when the package is unlisted.
+> On nuget.org, the `published` value is set to year 1900 when the package is unlisted.
 
 ### Example
 
-The registration index for NuGet.Versioning 4.3.0 on NuGet.org looks something like this:
+The registration index for NuGet.Versioning 4.3.0 on nuget.org looks something like this:
 
 [!code-JSON [package-registration-leaf.json](./_data/package-registration-leaf.json)]

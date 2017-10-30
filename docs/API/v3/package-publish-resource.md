@@ -37,7 +37,7 @@ The only `@type` of the resource used for pushing and deleting packages is: `Pac
 ## Base URL
 
 The base URL for the following APIs is the value of the `@id` property of the `PackagePublish/2.0.0` resource in the
-package source's [service index](service-index.md). For the documentation below, NuGet.org's URL is used. Consider 
+package source's [service index](service-index.md). For the documentation below, nuget.org's URL is used. Consider 
 `https://www.nuget.org/api/v2/package` as a placeholder for the `@id` value found in the service index.
 
 Note that this URL points to the same location as the legacy V2 push endpoint since the protocol for V2 and V3 push is
@@ -50,8 +50,8 @@ see below.
 
 ## Push a package
 
-NuGet.org supports pushing new packages using the following API. If the package with the provided ID and version
-already exists, NuGet.org will reject the push. Other package sources may support replacing an existing package.
+nuget.org supports pushing new packages using the following API. If the package with the provided ID and version
+already exists, nuget.org will reject the push. Other package sources may support replacing an existing package.
 
 ```
 PUT https://www.nuget.org/api/v2/package
@@ -87,7 +87,7 @@ Status Code | Meaning
 
 ## Delete a package
 
-NuGet.org interprets the package delete request as an "unlist". This means that the package is still available for
+nuget.org interprets the package delete request as an "unlist". This means that the package is still available for
 existing consumers of the package but the package now longer appears in search results or in the web interface. For
 more information about this practice, see the
 [Deleted Packages](https://docs.microsoft.com/en-us/nuget/policies/deleting-packages) policy. Other server

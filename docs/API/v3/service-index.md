@@ -32,7 +32,7 @@ implementation to discover the package source's capabilities. The service index 
 properties: `version` (the schema version of the service index) and `resources`  (the endpoints or capabilities of the
 package source).
 
-NuGet.org's service index is located here:
+nuget.org's service index is located here:
 ```
 https://api.nuget.org/v3/index.json
 ```

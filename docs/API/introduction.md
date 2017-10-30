@@ -31,13 +31,13 @@ There are a variety of ways to interact with NuGet programmatically.
 
 ## Consuming and publishing packages
 
-To interact with packages available on NuGet.org and other V3-enabled NuGet package sources such as MyGet and Visual
+To interact with packages available on nuget.org and other V3-enabled NuGet package sources such as MyGet and Visual
 Studio Team Services package management, you can either:
 
 1. Use the <a href="v3/overview.md">HTTP-based V3 API</a> and write your own client code.
 1. Use the <a href="nuget-client-sdk.md">NuGet client SDK</a>, a set of .NET libraries used by the official NuGet clients.
 
-When interacting with [NuGet.org's HTTP protocol](nuget-protocols.md), there are additional requirements and endpoints
+When interacting with [nuget.org's HTTP protocol](nuget-protocols.md), there are additional requirements and endpoints
 available on top of the documented V3 API.
 
 ## Extending authentication

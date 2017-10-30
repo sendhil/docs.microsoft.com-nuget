@@ -77,7 +77,7 @@ Name        | Type    | Notes
 The `{id}` and `{version}` values interpreted by the server implementation must be case insenstive and not sensitive to
 whether the version is normalized.
 
-For example, NuGet.org's report abuse template looks like this:
+For example, nuget.org's report abuse template looks like this:
 
 ```
 https://www.nuget.org/packages/{id}/{version}/ReportAbuse

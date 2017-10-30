@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: NuGet.org Protocols | Microsoft Docs
+title: nuget.org-only Protocols | Microsoft Docs
 author: anangaur
 ms.author: anangaur
 manager: unniravindranathan
@@ -13,19 +13,19 @@ ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 
 # optional metadata
 
-description: The evolving NuGet.org protocols to interact with NuGet clients.
+description: The evolving nuget.org-only protocols to interact with NuGet clients.
 ms.reviewer:
 - kraigb
 - karann-msft
 
 ---
-# NuGet.org-only Protocols
+# nuget.org-only Protocols
 
-To interact with NuGet.org, clients need to follow certain protocols. Because these protocols keep evolving, clients
+To interact with nuget.org, clients need to follow certain protocols. Because these protocols keep evolving, clients
 must identify the protocol version they use when calling specific nuget.org APIs. This allows nuget.org to introduce
 changes in a non-breaking way for the old clients.
 
-The APIs documented on this page are specific to NuGet.org and there is no expectation for other NuGet server
+The APIs documented on this page are specific to nuget.org and there is no expectation for other NuGet server
 implementations to introduce these APIs. For information about the NuGet V3 API implemented broadly across the NuGet
 ecosystem, see the [V3 API overview](v3/overview.md).
 

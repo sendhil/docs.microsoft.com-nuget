@@ -34,8 +34,8 @@ This API is used by the NuGet client in Visual Studio, nuget.exe, and the .NET C
 [`dotnet restore`](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), search in the Visual
 Studio UI, and [`nuget.exe push`](../../tools/cli-ref-push.md).
 
-Note in some rare cases, NuGet.org has additional requirements that are not enforced by other package sources. These
-differences are documented by the [NuGet.org Protocols](../nuget-protocols.md).
+Note in some rare cases, nuget.org has additional requirements that are not enforced by other package sources. These
+differences are documented by the [nuget.org Protocols](../nuget-protocols.md).
 
 ## Service index
 
