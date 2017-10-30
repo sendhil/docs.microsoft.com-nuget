@@ -18,7 +18,7 @@ ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 # optional metadata
 
 description: The NuGet V3 API is a set of HTTP endpoints that can be used to download packages, fetch metadata, publish new packages, etc.
-keywords: NuGet, API, V3, V2, JSON, registration, flat container, nupkg, metadata, search, push, publish, delete, unlist, protocol
+keywords: NuGet V3 API, NuGet V2 API, NuGet JSON, NuGet registration API, NuGet API flat container, NuGet nupkg API, NuGet metadata API, NuGet search API, NuGet push API, NuGe publish API, NuGet delete API, NuGet unlist API, NuGet protocol
 ms.reviewer:
 - karann
 - unniravindranathan
@@ -34,8 +34,8 @@ This API is used by the NuGet client in Visual Studio, nuget.exe, and the .NET C
 [`dotnet restore`](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), search in the Visual
 Studio UI, and [`nuget.exe push`](../../tools/cli-ref-push.md).
 
-Note in some rare cases, NuGet.org has additional requirements that are not enforced by other package sources. These
-differences are documented by the [NuGet.org Protocols](../nuget-protocols.md).
+Note in some rare cases, nuget.org has additional requirements that are not enforced by other package sources. These
+differences are documented by the [nuget.org Protocols](../nuget-protocols.md).
 
 ## Service index
 
@@ -52,7 +52,7 @@ For more information about the service index, see [its API reference](service-in
 
 ## Versioning
 
-The API is version 3 of NuGet's HTTP protocol. This protocol is generally referred to as "the V3 API".
+The API is version 3 of NuGet's HTTP protocol. This protocol is generally referred to as "the V3 API."
 
 The service index schema version is indicated by the `version` property in the service index. The V3 API mandates that
 the version string has a major version number of `3`. As non-breaking changes are made to the service index schema, the
@@ -74,9 +74,9 @@ Resource name                                                          | Descrip
 [`PackageBaseAddress`](package-base-address-resource.md)               | Get package content (.nupkg).
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Construct a URL to access a "report abuse" web page.
 
-In general, all non-binary data returned by a V3 API resource will be serialized using JSON. The response schema
+In general, all non-binary data returned by a V3 API resource are serialized using JSON. The response schema
 returned by each resource in the service index is defined individually for that resource. For more information about
-each resource, see the resource topics noted above.
+each resource, see the topics listed above.
 
 ## Timestamps
 
