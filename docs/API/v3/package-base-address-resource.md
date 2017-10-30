@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Package Content | NuGet V3 API | Microsoft Docs
+title: Package Content, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: ec68b5d1-a684-4995-b1a6-6210dbb24875
 # optional metadata
 
 description: The package base address is a simple interface for fetching the package itself.
-keywords: flat container, dnx, package base address, nupkg, versions, unlisted, enumerate, download
+keywords: NuGet V3 flat container, NuGet V3 package base address, NuGet V3 nupkg API, NuGet V3 API package versions, NuGet API API unlisted packages,
 ms.reviewer:
 - karann
 - unniravindranathan

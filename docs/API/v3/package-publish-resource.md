@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Push and Delete | NuGet V3 API | Microsoft Docs
+title: Push and Delete, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 # optional metadata
 
 description: The publish service allows clients to publish new packages and unlist or delete existing packages.
-keywords: NuGet, API, REST, HTTP, push, delete, unlist, package, upload, create, hide
+keywords: NuGet V3 API push package, NuGet V3 API delete package, NuGet V3 API unlist package, NuGet V3 API upload package, NuGet V3 API create package
 ms.reviewer:
 - karann
 - unniravindranathan

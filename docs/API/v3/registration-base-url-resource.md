@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Package Metadata | NuGet V3 API | Microsoft Docs
+title: Package Metadata, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 # optional metadata
 
 description: The package registration base URL allows fetching metadata about packages.
-keywords: API, NuGet, package, metadata, registration, details, description, HTTP, unlisted
+keywords: NuGet V3 API package metadata, NuGet V3 API registration, NuGet V3 API unlisted packages
 ms.reviewer:
 - karann
 - unniravindranathan

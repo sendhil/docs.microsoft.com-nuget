@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Overview | NuGet V3 API | Microsoft Docs
+title: NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb

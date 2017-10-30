@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Service Index | NuGet V3 API | Microsoft Docs
+title: Service Index, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 # optional metadata
 
 description: The V3 service index is the entry point of the NuGet V3 and enumerates the capabilities of the V3 server.
-keywords: API, V3, NuGet, entry point, versioning, resources, discovery
+keywords: NuGet V3 API entry point, NuGet V3 API endpoint discovery
 ms.reviewer:
 - karann
 - unnir

@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Search | NuGet V3 API | Microsoft Docs
+title: Search, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 # optional metadata
 
 description: The search service allows clients to query for packages by keyword and to filter results on certain package fields.
-keywords: API, search, package, tags, discovery, lucene, query
+keywords: NuGet V3 search API, NuGet V3 discover packages, API to query NuGet packages, API to browse NuGet packages
 ms.reviewer:
 - karann
 - unniravindranathan

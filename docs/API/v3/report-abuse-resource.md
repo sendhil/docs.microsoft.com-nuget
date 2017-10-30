@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Report Abuse URL Template | NuGet V3 API | Microsoft Docs
+title: Report Abuse URL Template, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: 148d743a-09e5-4539-8454-675be11902db
 # optional metadata
 
 description: The report abuse URL template allows clients to display a report abuse link in their UI.
-keywords: API, user, URL, URI, report, abuse, package, NuGet
+keywords: NuGet V3 API report abuse, NuGet V3 API file complaint, NuGet.org report URL template
 ms.reviewer:
 - karann
 - unniravindranathan

@@ -1,7 +1,7 @@
 ---
 # required metadata 
 
-title: Autocomplete | NuGet V3 API | Microsoft Docs
+title: Autocomplete, NuGet V3 API | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -18,7 +18,7 @@ ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 # optional metadata
 
 description: The search autocomplete service supports interactive discovery of package IDs and versions.
-keywords: API, autocomplete, package, ID, partial, substring, ngram, search, version, identifier
+keywords: NuGet V3 autocomplete API, NuGet V3 search package ID, substring package ID
 ms.reviewer:
 - karann
 - unniravindranathan
