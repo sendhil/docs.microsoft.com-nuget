@@ -85,28 +85,68 @@ The catalog index is a JSON document that contains an object with the following 
 
 Name            | Type             | Required | Notes
 --------------- | ---------------- | -------- | -----
-commitId        | string           | yes      | A GUID unique to each catalog commit
-commitTimeStamp | string           | yes      | A timestamp of the most recent catalog commit
+commitId        | string           | yes      | A GUID associated with the most commit
+commitTimeStamp | string           | yes      | A timestamp of the most recent commit
 count           | integer          | yes      | The number of pages in the index
 items           | array of objects | yes      | A array of objects, one object per page
 
-As items are added to a catalog, the `commitId` will change and the `commitTimeStamp` will increase.
+As items are added to the catalog, the `commitId` will change and the `commitTimeStamp` will increase.
 
 Each element in the `items` array is an object with some minimal details about each page. These page objects do not
-contain the actual catalog items.
+contain the actual catalog items. The order of the items in this array is not defined. Pages should be ordered using
+their `commitTimeStamp` property.
 
 As new pages are introduced, the `count` will be incremented and a new object will appear in the `items` array.
 
-### Catalog page
+### Catalog page object in the index
 
 The catalog page objects found in the catalog index's `items` property have the following properties:
 
+Name            | Type    | Required | Notes
+--------------- | ------- | -------- | -----
+@id             | string  | yes      | The URL to the catalog page
+commitId        | string  | yes      | A GUID associated with the most recent commit in this page
+commitTimeStamp | string  | yes      | A timestamp of the most recent commit in this page
+count           | integer | yes      | The number of items in the page
+
+## Catalog page
+
+The catalog page is a collection of catalog items. It is a document fetched using the `@id` value found in the catalog
+index. The URL to a catalog page is not intended to be predictable and should be discovered using only the catalog
+index.
+
+The catalog page document is a JSON object with the following properties:
+
 Name            | Type             | Required | Notes
 --------------- | ---------------- | -------- | -----
-@id             | string           | yes      |
-commitId        | string           | yes      |
-commitTimeStamp | string           | yes      |
-count           | integer          | yes      |
+commitId        | string           | yes      | A GUID associated with the most recent commit in this page
+commitTimeStamp | string           | yes      | A timestamp of the most recent commit in this page
+count           | integer          | yes      | The number of items in the page
+items           | array of objects | yes      | The catalog items in this page
+parent          | string           | yes      | A URL to the catalog index
+
+As items are added to the page, the `commitId` will change and the `commitTimeStamp` will increase.
+
+Each element in the `items` array is an object with some minimal details about each item. These item objects do not
+contain all of the catalog item's data. The order of the items in this array is not defined. Items should be ordered
+using their `commitTimeStamp` property.
+
+As new items are introduced, the `count` will be incremented and a new object will appear in the `items` array.
+
+### Catalog item object in a page
+
+The catalog item objects found in the catalog page's `items` property have the following properties:
+
+Name            | Type    | Required | Notes
+--------------- | ------- | -------- | -----
+@id             | string  | yes      | The URL to the catalog item
+@type           | string  | yes      | The type of the catalog item
+commitId        | string  | yes      | A GUID associated with this catalog item
+commitTimeStamp | string  | yes      | The commit timestamp of this catalog item
+nuget:id        | string  | yes      | The package ID of the catalog item
+nuget:version   | string  | yes      | The package version of the catalog item
+
+Details about the possible values for `@type` are available below.
 
 ## Cursor
 
